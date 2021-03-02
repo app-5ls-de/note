@@ -7,89 +7,16 @@
         <title>Note</title>
 
         <link
+            href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.min.css"
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/ui/trumbowyg.min.css"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/colors/ui/trumbowyg.colors.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/emoji/ui/trumbowyg.emoji.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/table/ui/trumbowyg.table.min.css"
-        />
-        <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="/edit.css" />
     </head>
 
     <body>
         <div id="editor"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/trumbowyg.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/colors/trumbowyg.colors.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/emoji/trumbowyg.emoji.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/fontsize/trumbowyg.fontsize.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-resizable-dom@0.35.0/dist/jquery-resizable.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/trumbowyg@2.23.0/dist/plugins/table/trumbowyg.table.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/dompurify@2.2.6/dist/purify.min.js"></script>
-        <script src="/script.js"></script>
-        <script>
-            let id = "default";
-
-            let html = localStorage.getItem(id);
-
-            //JSON.parse(localStorage.getItem(id))
-            //localStorage.setItem(id, JSON.stringify(state));
-
-            let onChange = throttle(() => {
-                function gethtml() {
-                    let dirty = $("#editor").trumbowyg("html");
-                    let clean = dirty; //DOMPurify.sanitize( dirty );
-                    //console.log(clean)
-                    return clean;
-                }
-                console.log("save!");
-                localStorage.setItem(id, gethtml());
-            }, 1000 * 1);
-
-            let editor = $("#editor")
-                .trumbowyg({
-                    btns: [
-                        ["viewHTML"],
-                        ["undo", "redo"], // Only supported in Blink browsers
-                        ["formatting"],
-                        ["strong", "em", "del"],
-                        ["superscript", "subscript"],
-                        ["link"],
-                        ["insertImage"],
-                        [
-                            "justifyLeft",
-                            "justifyCenter",
-                            "justifyRight",
-                            "justifyFull",
-                        ],
-                        ["unorderedList", "orderedList"],
-                        ["horizontalRule"],
-                        ["removeformat"],
-                        ["fullscreen"],
-                        ["foreColor", "backColor"], // plugin: colors
-                        ["emoji"], // plugin: emoji
-                        ["fontsize"], // plugin: fontsize
-                        ["indent", "outdent"], // plugin: indent
-                        ["table"], // plugin: table
-                    ],
-                })
-                .on("tbwchange", onChange);
-
-            if (html) {
-                $("#editor").trumbowyg("html", html);
-            }
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+        <script src="/edit.js"></script>
     </body>
 </html>

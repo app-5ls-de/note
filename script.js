@@ -34,15 +34,13 @@ function mount(parent, childs) {
     }
 }
 
-// ---
-
 function new_note() {
     id = radom_id();
     title = createRandomWord();
     localStorage.setItem(id, '{"ops":[{"insert":"\\n"}]}');
     localStorage.setItem(id + "-title", title);
 
-    //window.location = window.location.origin + "/edit?" + id;
+    window.location = window.location.origin + "/edit?" + id;
 }
 
 function rename_note(id, title) {

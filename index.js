@@ -61,13 +61,13 @@ function delete_note(id) {
 function create_item(id) {
     let title = localStorage.getItem(id + "-title");
 
-    let btn_delete = redom.el("button.delete", "x");
+    let btn_delete = redom.el("button.delete", redom.el("img", {src: "/delete.svg"}));
     btn_delete.addEventListener("click", (e) => {
         delete_note(id);
         e.preventDefault();
     });
 
-    let btn_rename = redom.el("button.rename", "e");
+    let btn_rename = redom.el("button.rename", redom.el("img", {src: "/edit.svg"}));
     btn_rename.addEventListener("click", (e) => {
         rename_note(id, title);
         e.preventDefault();

@@ -50,6 +50,7 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1.5em;
 }
 
 a.link {
@@ -61,4 +62,8 @@ a.link {
 
 h1 {
     text-align: center;
+}
+
+button > img {
+    width: 1rem;
 }
